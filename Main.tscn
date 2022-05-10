@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="ChatRoom" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SetUp" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeaveButton" type="Button" parent="SetUp"]
+margin_left = 17.0
+margin_top = 477.0
+margin_right = 66.0
+margin_bottom = 497.0
+text = "Leave"
+
+[node name="JoinButton" type="Button" parent="SetUp"]
+margin_left = 30.0
+margin_top = 418.0
+margin_right = 65.0
+margin_bottom = 438.0
+text = "Join"
+
+[node name="HostButton" type="Button" parent="SetUp"]
+margin_left = 27.0
+margin_top = 375.0
+margin_right = 69.0
+margin_bottom = 395.0
+text = "Host"
+
+[node name="NameButton" type="Button" parent="SetUp"]
+margin_left = 23.0
+margin_top = 529.0
+margin_right = 73.0
+margin_bottom = 549.0
+text = "Name"
+
+[node name="IPEnter" type="LineEdit" parent="SetUp"]
+margin_left = 81.0
+margin_top = 397.0
+margin_right = 224.0
+margin_bottom = 421.0
+
+[node name="UserName" type="LineEdit" parent="SetUp"]
+margin_left = 85.0
+margin_top = 524.0
+margin_right = 233.0
+margin_bottom = 553.0
+
+[node name="RoomUI" type="Panel" parent="."]
+margin_left = 247.0
+margin_top = 1.0
+margin_right = 1020.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatInput" type="LineEdit" parent="RoomUI"]
+margin_left = 21.0
+margin_top = 551.0
+margin_right = 744.0
+margin_bottom = 576.0
+text = "Say something...."
+
+[node name="ChatDisplay" type="TextEdit" parent="RoomUI"]
+margin_left = 34.0
+margin_top = 37.0
+margin_right = 735.0
+margin_bottom = 528.0
+custom_colors/font_color_readonly = Color( 0.878431, 0.843137, 0.843137, 1 )
+text = "ddaf"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="SetUp/LeaveButton" to="." method="_on_LeaveButton_pressed"]
+[connection signal="pressed" from="SetUp/JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="SetUp/HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="SetUp/NameButton" to="." method="_on_NameButton_pressed"]
+[connection signal="text_entered" from="RoomUI/ChatInput" to="." method="_on_ChatInput_text_entered"]
